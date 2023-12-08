@@ -7,8 +7,15 @@ import ddf.minim.ugens.*;
 
 import controlP5.*;
 
+//import
+
 Minim minim;
 AudioPlayer groove;
+AudioOutput AudioOut;
+AudioInput AudioIn;
+
+boolean isMode = true;//true = playmode,false = soundcard inputmode
+
 
 ControlP5 slider;
 int vol;
@@ -18,21 +25,20 @@ void setup()
   size(1024, 768);
 
   minim = new Minim(this);
-  groove = minim.loadFile("Louder.mp3", 1024);//1024 is no baffer
-  groove.loop();
+  groove = minim.loadFile("Louder.mp3", 1024);//put this your song
 
   slider = new ControlP5(this);
-  slider.addSlider("vol")
+  slider.addSlider("VOLUME")
     .setRange(0, 100)
     .setValue(50)
-    .setPosition(400, 500)
+    .setPosition(350, 668)
     .setSize(300, 70)
     .setNumberOfTickMarks(101);
 }
 
 void draw()
 {
-  background(0);
+  background(12);
 
   stroke( 255 );
 
@@ -54,8 +60,12 @@ void draw()
   // the value returned by the level method is the RMS (root-mean-square)
   // value of the current buffer of audio.
   // see: http://en.wikipedia.org/wiki/Root_mean_square
-  rect( 0, 0, groove.left.level()*width, 100 );
-  rect( 0, 100, groove.right.level()*width, 100 );
+  rect( 140, 768, 100, 100-groove.left.level()*height);
+  rect( 40, 768, 100, 100-groove.right.level()*height);
+
+  float posx = map(groove.position(), 0, groove.length(), 0, width);
+  stroke(0, 200, 0);
+  line(posx, 0, posx, 200);
 }
 
 void keyPressed()
@@ -63,9 +73,43 @@ void keyPressed()
   if (keyCode == ' ') {
     if (groove.isPlaying()) { //play-pause control
       groove.pause();
-    } 
-    else {
+    } else {
       groove.loop();
     }
   }
+
+ if (key == 's') {
+   groove.pause();
+   groove.cue(0);
+}
+  if (key == '1'){
+    groove.cue(groove.length()/10);
+}
+  if (key == '2'){
+    groove.cue(groove.length()/10*2);
+}
+  if (key == '3'){
+    groove.cue(groove.length()/10*3);
+}
+  if (key == '4'){
+    groove.cue(groove.length()/10*4);
+}
+  if (key == '5'){
+    groove.cue(groove.length()/10*5);
+}
+  if (key == '6'){
+    groove.cue(groove.length()/10*6);
+}
+  if (key == '7'){
+    groove.cue(groove.length()/10*7);
+}
+  if (key == '8'){
+    groove.cue(groove.length()/10*8);
+}
+  if (key == '9'){
+    groove.cue(groove.length()/10*9);
+}
+  if (key == '0'){
+    groove.cue(groove.length());
+}
 }
