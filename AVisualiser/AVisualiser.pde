@@ -13,6 +13,7 @@ Minim minim;
 AudioPlayer groove;
 AudioOutput AudioOut;
 AudioInput AudioIn;
+AudioMetaData meta;
 
 boolean isMode = true;//true = playmode,false = soundcard inputmode
 
@@ -26,6 +27,8 @@ void setup()
 
   minim = new Minim(this);
   groove = minim.loadFile("Louder.mp3", 1024);//put this your song
+  
+  meta  =  groove.getMetaData();
 
   slider = new ControlP5(this);
   slider.addSlider("VOLUME")
@@ -66,6 +69,10 @@ void draw()
   float posx = map(groove.position(), 0, groove.length(), 0, width);
   stroke(0, 200, 0);
   line(posx, 0, posx, 200);
+
+  text("FileName:" + meta.fileName(), 300, 760);
+  text("Length  (in  milliseconds):"  +  meta.length(), 700, 760);
+  text("Title:"  +  meta.title(), 500, 760);
 }
 
 void keyPressed()
@@ -78,38 +85,38 @@ void keyPressed()
     }
   }
 
- if (key == 's') {
-   groove.pause();
-   groove.cue(0);
-}
-  if (key == '1'){
+  if (key == 's') {
+    groove.pause();
+    groove.cue(0);
+  }
+  if (key == '1') {
     groove.cue(groove.length()/10);
-}
-  if (key == '2'){
+  }
+  if (key == '2') {
     groove.cue(groove.length()/10*2);
-}
-  if (key == '3'){
+  }
+  if (key == '3') {
     groove.cue(groove.length()/10*3);
-}
-  if (key == '4'){
+  }
+  if (key == '4') {
     groove.cue(groove.length()/10*4);
-}
-  if (key == '5'){
+  }
+  if (key == '5') {
     groove.cue(groove.length()/10*5);
-}
-  if (key == '6'){
+  }
+  if (key == '6') {
     groove.cue(groove.length()/10*6);
-}
-  if (key == '7'){
+  }
+  if (key == '7') {
     groove.cue(groove.length()/10*7);
-}
-  if (key == '8'){
+  }
+  if (key == '8') {
     groove.cue(groove.length()/10*8);
-}
-  if (key == '9'){
+  }
+  if (key == '9') {
     groove.cue(groove.length()/10*9);
-}
-  if (key == '0'){
+  }
+  if (key == '0') {
     groove.cue(groove.length());
-}
+  }
 }
