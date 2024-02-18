@@ -5,10 +5,12 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-import controlP5.*;
-
 import processing.sound.*;
 
+import java.io.*;
+import javax.swing.*;
+
+import controlP5.*;
 
 Minim minim;
 AudioPlayer groove;
@@ -17,31 +19,36 @@ AudioInput AudioIn;
 AudioMetaData meta;
 
 
-String scene = "play";//scenemode setting
-
 int songnum;
 
 File[] files;
 SoundFile sound;
 
+int r, g, b;
+int wr,wg,wb,wa;
+float Cvol;
+
+
+
 void setup()
 {
   size(1024, 768);
-  songlist(1);
 
+
+  loadfile();
+  setting();
+  
 }
 
 
 void draw()
 {
-  background(12);
-  stroke( 255 );
+  background(r,g,b);
+  stroke(wr,wg,wb,wa);
   
-  if(scene == "play"){
-    player();
-  }
+  player();
   
-  else if (scene == "setting"){
-    rect(100,100,100,100);
-  }
+  
+ 
+ 
 }

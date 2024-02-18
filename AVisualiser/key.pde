@@ -1,4 +1,4 @@
-  int set;
+int set;
 
 void keyPressed()
 {
@@ -13,7 +13,9 @@ void keyPressed()
   if (key == 's') {
     groove.pause();
     groove.cue(0);
+    loadfile();
   }
+  
   if (key == '1') {
     groove.cue(groove.length()/10);
   }
@@ -42,20 +44,6 @@ void keyPressed()
     groove.cue(groove.length()/10*9);
   }
   if (key == '0') {
-    groove.cue(groove.length());
-  }
-
-
-
-
-  if (key == 'l') {
-    if(set == 1){
-      scene = "setting";
-      set = 0;
-    }
-    else{
-      scene = "play";
-      set = 1;
-    }
+    groove.rewind();
   }
 }
