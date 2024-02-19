@@ -6,7 +6,7 @@ void setting(){
   slider.addKnob("red") 
     .setRange(0, 255) 
     .setValue(r)
-    .setPosition(530, 600)
+    .setPosition(490,580)
     .setSize(100,100)
     .setColorForeground(color(100,0,0))
     .setColorActive(color(190,0,100))
@@ -15,7 +15,7 @@ void setting(){
   slider.addKnob("green") 
     .setRange(0, 255) 
     .setValue(g)
-    .setPosition(640,600)
+    .setPosition(600,580)
     .setSize(100,100)
     .setColorForeground(color(0,100,0))
     .setColorActive(color(0,190,100))
@@ -24,18 +24,29 @@ void setting(){
   slider.addKnob("blue") 
     .setRange(0, 255) 
     .setValue(b)
-    .setPosition(750, 600)
+    .setPosition(710, 580)
     .setSize(100,100)
     .setColorForeground(color(0,0,190))
     .setColorActive(color(0,100,240))
     .setColorBackground(color(40));
+    
+  /*
+  slider.addKnob("alpha") 
+    .setRange(0,1) 
+    .setValue(a)
+    .setPosition(860, 600)
+    .setSize(100,100)
+    .setColorForeground(color(190,190,190))
+    .setColorActive(color(240,240,240))
+    .setColorBackground(color(40));
+  */
     
     
     
   slider.addKnob("waveColorR") 
     .setRange(0, 255) 
     .setValue(255)
-    .setPosition(530, 480)
+    .setPosition(490, 460)
     .setSize(100,100)
     .setColorForeground(color(100,0,0))
     .setColorActive(color(190,0,100))
@@ -44,7 +55,7 @@ void setting(){
    slider.addKnob("waveColorG") 
     .setRange(0, 255) 
     .setValue(255)
-    .setPosition(640,480)
+    .setPosition(600,460)
     .setSize(100,100)
     .setColorForeground(color(0,100,0))
     .setColorActive(color(0,190,100))
@@ -53,7 +64,7 @@ void setting(){
    slider.addKnob("waveColorB") 
     .setRange(0, 255) 
     .setValue(255)
-    .setPosition(750, 480)
+    .setPosition(710, 460)
     .setSize(100,100)
     .setColorForeground(color(0,0,190))
     .setColorActive(color(0,100,240))
@@ -62,7 +73,7 @@ void setting(){
    slider.addKnob("waveColorA") 
     .setRange(0, 255) 
     .setValue(255)
-    .setPosition(860, 480)
+    .setPosition(820, 460)
     .setSize(100,100)
     .setColorForeground(color(190,190,190))
     .setColorActive(color(240,240,240))
@@ -80,6 +91,12 @@ void green(float value){
 void blue(float value){
   b = int(value);
 }
+
+/*
+void alpha(float value){
+  a = float(value);
+}
+*/
 
 void waveColorR(float value){
   wr = int(value);

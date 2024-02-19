@@ -24,9 +24,8 @@ int songnum;
 File[] files;
 SoundFile sound;
 
-int r, g, b;
-int wr,wg,wb,wa;
-float Cvol;
+int r, g, b ;
+int wr, wg, wb, wa;
 
 
 
@@ -38,17 +37,15 @@ void setup()
   loadfile();
   setting();
   
+  groove.printControls(); //available controls show
 }
 
 
 void draw()
 {
-  background(r,g,b);
-  stroke(wr,wg,wb,wa);
-  
+  background(r, g, b);
+  stroke(wr, wg, wb, wa);
+
   player();
   
-  
- 
- 
 }
